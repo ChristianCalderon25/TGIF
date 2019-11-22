@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Congress House</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <img src="img/logo.png" width="50%">
+    </div>
+
+    <nav class="navbar navbar-default">
+        <ul class="nav navbar-nav">
+            <li><a href="home.html">Home</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li class="active"><a href="house-data.html">House</a></li>
+                    <li><a href="senate-data.html">Senate</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="house-attendance.html">House</a></li>
+                    <li><a href="senate-attendance.html">Senate</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="house-party-loyalty.html">House</a></li>
+                    <li><a href="senate-party-loyalty.html">Senate</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container-fluid" id="app">
+    <header>
+        <h2>Congressmen</h2>
+        <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
+        <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative.</p>
+    </header>
+
+        <label class="">Filter By State</label>
+        <select id="states" onchange="filter()">
+            <option value="All">ALL</option>
+            <option v-for="state in states">{{state}}</option>
+        </select>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="party" value="D" onclick="filter()" checked>Democrat</label>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="party" value="R" onclick="filter()" checked>Republican</label>
+        <label class="checkbox-inline">
+            <input type="checkbox" name="party" value="I" onclick="filter()" checked>Independent</label>
+        <table class="table">
+            <thead>
+            <th>Name</th>
+            <th>Party</th>
+            <th>State</th>
+            <th>Years in Office</th>
+            <th>% Votes with Party</th>
+        </thead>
+        <tbody id="membersData">
+            <tr v-for="member in members">
+                    <td>{{member.first_name}} {{member.middle_name}} {{member.last_name}}</td>
+                    <td>{{member.party}}</td>
+                    <td>{{member.state}}</td>
+                    <td>{{member.seniority}}</td>
+                    <td>{{member.votes_with_party_pct}}</td>
+                </tr>
+        </tbody>
+    </table>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <!--        <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+    <script src="main.js"></script>
+</body></html>
